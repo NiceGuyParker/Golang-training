@@ -13,4 +13,8 @@ func main() {
 	fmt.Println(b)
 	fmt.Println(*b)
 
+	*b = 20
+
+	fmt.Println(a)
+
 }
