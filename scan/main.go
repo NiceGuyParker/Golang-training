@@ -1,1 +1,11 @@
-package scan
+package main
+
+import "fmt"
+
+func main(){
+
+	var name string
+	fmt.Print("Your Name Here: ")
+	fmt.Scan(&name)
+	fmt.Println("Hello", name)
+}
