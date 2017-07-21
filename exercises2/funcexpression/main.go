@@ -7,6 +7,5 @@ func main() {
 		return n / 2, n%2 == 0
 	}
 
-	h, even := half(10)
-	fmt.Println(h, even)
+	fmt.Println(half(10))
 }
