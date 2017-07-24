@@ -9,7 +9,6 @@ func main() {
 	foo(aSlice...)
 	foo()
 }
-
 func foo(numbers ...int) {
 	fmt.Println(numbers)
 }
