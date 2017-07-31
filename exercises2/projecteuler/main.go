@@ -2,66 +2,24 @@ package main
 
 import "fmt"
 
-func small() int {
-	smallest := 0
-	for i := 0; i <= 1000000; i++ {
-		if i%1 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-		if i%2 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-		if i%3 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-		if i%4 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-		if i%5 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-		if i%6 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-		if i%7 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-		if i%8 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-		if i%9 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-		if i%10 == 0 {
-			if smallest < i {
-				smallest = i
-			}
-		}
-
-	}
-	return smallest
-}
-
 func main() {
-	n := small
+	p, t, lcd := 1, [2]int{}, 1
+	for c:= 2; c <= 20; c++ {
+		t[0], t[1], lcd = p, c, 1
+		L: for {
+			if t[0] > t[1] {
+				t[0] =  t[0] % t[1]
+			} else { t[1] = t[1] % t[0] }
 
-	fmt.Printf("%d", n)
+			if t[0] == 1 || t[1] == 1 { break L }
+			if t[0] * t[1] == 0 {
+				if t[0] == 0 {
+					lcd = t[1]
+				} else { lcd = t[0] }
+				break L
+			}
+		}
+		p *= c / lcd
+	}
+	fmt.Println(p)
 }
